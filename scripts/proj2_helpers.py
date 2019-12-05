@@ -1,3 +1,4 @@
+from itertools import groupby
 import numpy as np
 import pandas as pd
 
@@ -82,3 +83,23 @@ def baseline_item_mean(train, test, ids):
         predictions.append(mean)
     
     return rmse, predictions
+
+def group_by(data, index):
+    """group list of list by a specific index."""
+    sorted_data = sorted(data, key=lambda x: x[index])
+    groupby_data = groupby(sorted_data, lambda x: x[index])
+    return groupby_data
+
+def build_index_groups(train):
+    """build groups for nnz rows and cols."""
+    nz_row, nz_col = train.nonzero()
+    nz_train = list(zip(nz_row, nz_col))
+
+    grouped_nz_train_byrow = group_by(nz_train, index=0)
+    nz_row_colindices = [(g, np.array([v[1] for v in value]))
+                         for g, value in grouped_nz_train_byrow]
+
+    grouped_nz_train_bycol = group_by(nz_train, index=1)
+    nz_col_rowindices = [(g, np.array([v[0] for v in value]))
+                         for g, value in grouped_nz_train_bycol]
+    return nz_train, nz_row_colindices, nz_col_rowindices
