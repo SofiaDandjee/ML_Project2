@@ -1,4 +1,3 @@
-import csv
 import numpy as np
 import pandas as pd
 
@@ -58,41 +57,3 @@ def baseline_item_mean(train, test):
         mse += calculate_mse (to_predict, mean)
     
     return np.sqrt(mse/test.nnz)
-
-
-def read_csv_sample(name):
-    """
-    Reads the sample_submission file and extracts the couples (item, user) for which the rating has to be predicted.
-    Argument: name (string name of .csv input file)
-    """
-    items = []
-    users = []
-    
-    with open(name, 'r') as csvfile:
-        rows = csv.reader(csvfile, delimiter=',')
-        next(rows)
-        for row in rows:
-            id = row[0].split("_")
-            item, user = id[0], id[1]
-            item, user = int(item[1:]), int(user[1:])
-            
-            items.append(item)
-            users.append(user)
-            
-    return items, users
-
-
-def create_csv_submission(ids, predictions, name):
-    """
-    Creates an output file in csv format for submission to kaggle
-    Arguments: ids (
-               ratings (predicted ratings)
-               name (string name of .csv output file to be created)
-    """
-    #TOMODIFY
-    with open(name, 'w') as csvfile:
-        fieldnames = ['Id', 'Prediction']
-        writer = csv.DictWriter(csvfile, delimiter=",", fieldnames=fieldnames)
-        writer.writeheader()
-        for r1, r2 in zip(ids, y_pred):
-            writer.writerow({'Id':int(r1),'Prediction':int(r2)})
