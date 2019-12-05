@@ -1,0 +1,11 @@
+baseline_global_mean
+rmse: 1.12152228
+Aicrowd: RMSE: 1.127 Secondary: -0.016
+
+baseline_user_mean
+rmse: 1.03302947
+Aicrowd: RMSE: 1.070 Secondary: 0.084
+
+baseline_item_mean
+rmse: 1.0963385
+Aicrowd: RMSE: 1.117 Secondary:0.001
