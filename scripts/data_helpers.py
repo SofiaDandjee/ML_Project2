@@ -58,10 +58,10 @@ def read_csv_sample(path):
         items.append(item)
         users.append(user)
      
-    return items, users
+    return [items, users]
 
 
-def create_csv_submission(items, users, predictions, name):
+def create_csv_submission(ids, predictions, name):
     """
     Creates an output file in csv format for submission to kaggle
     Arguments: ids (
@@ -72,5 +72,5 @@ def create_csv_submission(items, users, predictions, name):
         fieldnames = ['Id', 'Prediction']
         writer = csv.DictWriter(csvfile, delimiter=",", fieldnames=fieldnames)
         writer.writeheader()
-        for r1, r2, r3 in zip(items, users, predictions):
+        for r1, r2, r3 in zip(ids[0], ids[1], predictions):
             writer.writerow({'Id':'r' + str(r1) + '_c' + str(r2),'Prediction':r3})
