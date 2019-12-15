@@ -35,6 +35,12 @@ param_grid = {'n_epochs': [10, 15], 'lr_all': [0.002, 0.003],
               'reg_all': [0.04, 0.05] , 'n_factors' : [40, 50] , 'random_state' : [15]}
 —> Test RMSE: 1.0026
 
+param_grid = {'n_epochs': [15, 17], 'lr_all': [0.002, 0.0025],
+              'reg_all': [0.045, 0.05] , 'n_factors' : [40, 45] , 'random_state' : [15]}
+1.0038627040655221
+{'n_epochs': 17, 'lr_all': 0.002, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE :  0.9984
+
 
 
     RANDOM
