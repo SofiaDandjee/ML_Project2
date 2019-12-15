@@ -48,6 +48,47 @@ param_grid = {'n_epochs': [16, 17], 'lr_all': [0.001, 0.002],
 {'n_epochs': 17, 'lr_all': 0.002, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
 —> Test RMSE: 1.0042
 
+param_grid = {'n_epochs': [17, 19], 'lr_all': [0.002],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [15]}
+—> 1.003457779574378
+{'n_epochs': 19, 'lr_all': 0.002, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE: RMSE: 1.0054
+
+param_grid = {'n_epochs': [19, 21], 'lr_all': [0.002, 0.0025],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [15]}
+—> 1.0037499889588957
+{'n_epochs': 19, 'lr_all': 0.002, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE: 
+
+param_grid = {'n_epochs': [19, 20], 'lr_all': [0.0017, 0.002, 0.0023],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [15]}
+—> 1.0036115576862816
+{'n_epochs': 20, 'lr_all': 0.0017, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE: 1.0028
+
+param_grid = {'n_epochs': [20, 22], 'lr_all': [0.0015, 0.002],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [15]}
+—> 1.0032219829876836
+{'n_epochs': 22, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE: 1.0014
+
+
+
+
+    CENTERED-kNN
+
+param_grid = {'k': [2, 5],
+              'sim_options': {'name': ['msd', 'cosine'],
+                              'min_support': [2],
+                              'user_based': [True]}
+              }
+—> 1.1072203680444876
+{'k': 5, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+—> Test RMSE: 1.1023
+
+
+
+
 
 
     RANDOM
