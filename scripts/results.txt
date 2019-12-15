@@ -28,6 +28,15 @@ J'ai checké et il n'y a aucune inférieure à 1 ou supérieure à 5 --> WTF ???
 
 Dimanche : implémenté toutes les méthodes de SURPRISE et premiers tests sur GS
 
+
+
+    SVD
+param_grid = {'n_epochs': [10, 15], 'lr_all': [0.002, 0.003],
+              'reg_all': [0.04, 0.05] , 'n_factors' : [40, 50] , 'random_state' : [15]}
+—> Test RMSE: 1.0026
+
+
+
     RANDOM
 AIcrowd: RMSE: 1.512 Secondary: -0.829
 
