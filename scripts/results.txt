@@ -89,17 +89,22 @@ param_grid = {'n_epochs': [20], 'n_factors' : [20], 'random_state' : [15], 'reg_
 param_grid = {'n_epochs': [20], 'n_factors' : [20], 'random_state' : [15], 'reg_pu' : [0.5], 'reg_qi' : [0.03, 0.05, 0.07, 0.09]}
 --> 1.0107840169909765 {'n_epochs': 20, 'n_factors': 20, 'random_state': 15, 'reg_pu': 0.5, 'reg_qi': 0.05}
 --> Test RMSE: 1.0054
+
+param_grid = {'n_epochs': [20], 'n_factors' : [20], 'random_state' : [15], 'reg_pu' : [0.5], 'reg_qi' : [0.05]}
+--> 1.010768800126342 {'n_epochs': 20, 'n_factors': 20, 'random_state': 15, 'reg_pu': 0.5, 'reg_qi': 0.05}
+--> Test RMSE: 1.0043827035760193
+
+AIcrowd: RMSE: 1.127 Secondary: -0.016
  
 
     BASELINE_ONLY
 param_grid = {'bsl_options': {'method': ['als'], 'n_epochs': [10], 'reg_u': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 'reg_i': [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}}
-—>1.0015999802619433
-{'bsl_options': {'method': 'als', 'n_epochs': 10, 'reg_u': 15, 'reg_i': 5}}
+—>1.0015999802619433 {'bsl_options': {'method': 'als', 'n_epochs': 10, 'reg_u': 15, 'reg_i': 5}}
 —> Test RMSE = 1.0000
 
 
 
 
-   SLOPE_ONE
+   SLOPE_ONE --> DONE
 Test RMSE = 0.9971
 AIcrowd: RMSE: 1.127 Secondary: -0.016
