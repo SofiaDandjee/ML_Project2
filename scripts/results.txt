@@ -71,7 +71,7 @@ param_grid = {'n_cltr_u': [10, 20, 30, 40, 50], 'n_cltr_i': [10, 20, 30, 40, 50]
     
     
     
-    NMF
+    NMF --> DONE
 param_grid = {'n_epochs': [5, 10, 15, 20], 'n_factors' : [50,100,150,200], 'random_state' : [15]}    
 --> 1.5560864733522681 {'n_epochs': 20, 'n_factors': 50, 'random_state': 15}
 --> Test RMSE: 1.5567
