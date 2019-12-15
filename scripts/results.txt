@@ -20,3 +20,7 @@ NaN RMSE because of NaN item and/or user features --> WTF???
 ALS
 Sur AIcrowd: Error : Unknown prediction value provided. Allowed Values : 1, 2, 3, 4, 5
 J'ai checké et il n'y a aucune inférieure à 1 ou supérieure à 5 --> WTF ???
+
+SURPRISE
+    RANDOM
+    AIcrowd: RMSE: 1.512 Secondary: -0.829
