@@ -29,7 +29,7 @@ J'ai checké et il n'y a aucune inférieure à 1 ou supérieure à 5 --> WTF ???
 Dimanche : implémenté toutes les méthodes de SURPRISE et premiers tests sur GS
 
     RANDOM
-    AIcrowd: RMSE: 1.512 Secondary: -0.829 ---> pourri, on abandonne
+AIcrowd: RMSE: 1.512 Secondary: -0.829
 
 
     
@@ -46,6 +46,15 @@ param_grid = {'n_cltr_u': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'n_cltr_i': [1, 2, 3,
 
 
 
+    KNN
+    
+    
+    
+    
+    NMF
+    
+    
+
     BASELINE_ONLY
 param_grid = {'bsl_options': {'method': ['als'], 'n_epochs': [10], 'reg_u': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 'reg_i': [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}}
 —>1.0015999802619433
@@ -56,5 +65,5 @@ param_grid = {'bsl_options': {'method': ['als'], 'n_epochs': [10], 'reg_u': [10,
 
 
    SLOPE_ONE
-Test RMSE = 1.0001
-    
+Test RMSE = 0.9971
+AIcrowd: RMSE: 1.127 Secondary: -0.016
