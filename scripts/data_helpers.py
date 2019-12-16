@@ -48,17 +48,17 @@ def read_csv_sample(path):
     Argument: name (string name of .csv input file)
     """
     
-    items = []
     users = []
+    items = []
     
     data = read_txt(path)[1:]
     
     for line in data:
-        item, user, _ = deal_line(line)
-        items.append(item)
+        user, item, _ = deal_line(line)
         users.append(user)
+        items.append(item)
      
-    return [items, users]
+    return [users, items]
 
 
 def create_csv_submission(ids, predictions, name):

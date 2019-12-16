@@ -1,8 +1,13 @@
+RANDOM
+AIcrowd: RMSE: 1.513 Secondary:-0.831
+
+SLOPEONE
+AIcrowd: RMSE: 1.040 Secodary: 0.134
+
 COCLUSTERING
-param_grid = {'n_cltr_u': [1], 'n_cltr_i': [1], 'n_epochs': [20]}
-1.0099730578298014 {'n_cltr_u': 1, 'n_cltr_i': 1, 'n_epochs': 20}
-Test RMSE: 1.0052
-AIcrowd: RMSE: 1.127 Secondary: -0.016 --> idem que pour SlopeOne et NMF, WTF???
+CoClustering(n_cltr_u=1, n_cltr_i=1, n_epochs=100)
+AIcrowd: RMSE: 1.046 Secondary: 0.125
+
 
 KNN
 MOVIE SIMILIARITY
@@ -42,6 +47,25 @@ param_grid = {'k': [20],
 1.0368534289524032 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
 Test RMSE: 1.0254
 
+param_grid = {'k': [5, 10, 15, 20],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+1.037049718628079 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
+Test RMSE: 1.0211
+
+param_grid = {'k': [18, 19, 20, 21, 22],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+1.0370138823311994 {'k': 21, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
+Test RMSE: 1.0215
+
+param_grid = {'k': [18, 19, 20, 21, 22],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+                              
 USER SIMILARITY
 print('KNN')
 param_grid = {'k': [20],
@@ -58,7 +82,12 @@ param_grid = {'k': [20],
 1.0482214448779699 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
 Test RMSE: 1.0392
 
+param_grid = {'k': [20, 40],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [True]}
+1.0343296024128215 {'k': 40, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}                              
 
 
-https://www.aicrowd.com/challenges/epfl-ml-recommender-system-2019/
+
 https://github.com/saisandeepNSS/Netflix-Recommender-System/blob/master/NetflixRecommenderSystem.ipynb
