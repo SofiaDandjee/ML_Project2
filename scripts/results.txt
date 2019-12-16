@@ -72,6 +72,51 @@ param_grid = {'n_epochs': [20, 22], 'lr_all': [0.0015, 0.002],
 {'n_epochs': 22, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
 —> Test RMSE: 1.0014
 
+param_grid = {'n_epochs': [25], 'lr_all': [0.0015, 0.002],
+              'reg_all': [0.05, 0.08] , 'n_factors' : [40, 60] , 'random_state' : [15]}
+—> 1.0034531713267099
+{'n_epochs': 25, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 15}
+—> Test RMSE: 1.0014
+
+param_grid = {'n_epochs': [25], 'lr_all': [0.0015],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [15, 30]}
+—> 1.0034212108176057
+{'n_epochs': 25, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 1.0017
+
+param_grid = {'n_epochs': [40], 'lr_all': [0.0015],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [30]}
+—> 1.0038845321561767
+{'n_epochs': 40, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 1.0008
+
+param_grid = {'n_epochs': [70], 'lr_all': [0.0015],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [30]}
+—>1.0055634499622417
+{'n_epochs': 70, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 0.9932
+
+param_grid = {'n_epochs': [100], 'lr_all': [0.0015, 0.0018],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [30]}
+—> 1.00975145469071
+{'n_epochs': 100, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 0.9882
+
+param_grid = {'n_epochs': [200], 'lr_all': [0.0015],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [30]}
+—> 1.0386632240809792
+{'n_epochs': 200, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 1.0011
+
+param_grid = {'n_epochs': [100], 'lr_all': [0.0015],
+              'reg_all': [0.05] , 'n_factors' : [40] , 'random_state' : [30]}
+
+—> 1.0101971127754135
+{'n_epochs': 100, 'lr_all': 0.0015, 'reg_all': 0.05, 'n_factors': 40, 'random_state': 30}
+—> Test RMSE: 0.9875
+
+
+
 
 
 
@@ -85,6 +130,17 @@ param_grid = {'k': [2, 5],
 —> 1.1072203680444876
 {'k': 5, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
 —> Test RMSE: 1.1023
+
+param_grid = {'k': [8],
+              'sim_options': {'name': ['msd', 'cosine'],
+                              'min_support': [2],
+                              'user_based': [True]}
+              }
+—> 1.0738126266470958
+{'k': 8, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+—> Test RMSE: 1.0744
+
+
 
 
 
