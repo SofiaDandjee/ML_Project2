@@ -8,6 +8,10 @@ COCLUSTERING
 CoClustering(n_cltr_u=1, n_cltr_i=1, n_epochs=100)
 AIcrowd: RMSE: 1.046 Secondary: 0.125
 
+NMF
+NMF(n_epochs=100, n_factors=20, random_state=15, reg_pu=0.5, reg_qi=0.05)
+AIcrowd: RMSE: 1.051  Secondary: 0.116
+
 
 KNN
 MOVIE SIMILIARITY
@@ -65,6 +69,9 @@ param_grid = {'k': [18, 19, 20, 21, 22],
               'sim_options': {'name': ['msd'],
                               'min_support': [2],
                               'user_based': [False]}
+                              
+KNNBasic(k=21, name='msd', min_support=2, user_based=False)
+AIcrowd: RMSE:1.073 Secondary:0.078
                               
 USER SIMILARITY
 print('KNN')
