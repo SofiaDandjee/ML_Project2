@@ -116,8 +116,8 @@ param_grid = {'n_epochs': [100], 'lr_all': [0.0015],
 —> Test RMSE: 0.9875
 
 
-
-
+algo = SVD(n_epochs=100, lr_all=0.0015, reg_all= 0.05 , n_factors = 100 , random_state=30)
+Aircrow: 1.028
 
 
     CENTERED-kNN
