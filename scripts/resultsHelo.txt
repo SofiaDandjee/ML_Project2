@@ -1,8 +1,30 @@
+baseline_global_mean
+rmse: 1.12152228
+AIcrowd: RMSE: 1.127 Secondary: -0.016
+
+baseline_item_mean
+rmse: 1.03302947
+AIcrowd: RMSE: 1.070 Secondary: 0.084
+
+baseline_user_mean
+rmse: 1.0963385
+AIcrowd: RMSE: 1.117 Secondary:0.001
+
+
+RANDOM
+AIcrowd: RMSE: 1.513 Secondary:-0.831
+
+SLOPEONE
+AIcrowd: RMSE: 1.040 Secondary: 0.134
+
 COCLUSTERING
-param_grid = {'n_cltr_u': [1], 'n_cltr_i': [1], 'n_epochs': [20]}
-1.0099730578298014 {'n_cltr_u': 1, 'n_cltr_i': 1, 'n_epochs': 20}
-Test RMSE: 1.0052
-AIcrowd: RMSE: 1.127 Secondary: -0.016 --> idem que pour SlopeOne et NMF, WTF???
+CoClustering(n_cltr_u=1, n_cltr_i=1, n_epochs=100)
+AIcrowd: RMSE: 1.046 Secondary: 0.125
+
+NMF
+NMF(n_epochs=100, n_factors=20, random_state=15, reg_pu=0.5, reg_qi=0.05)
+AIcrowd: RMSE: 1.051  Secondary: 0.116
+
 
 KNN
 MOVIE SIMILIARITY
@@ -42,6 +64,28 @@ param_grid = {'k': [20],
 1.0368534289524032 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
 Test RMSE: 1.0254
 
+param_grid = {'k': [5, 10, 15, 20],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+1.037049718628079 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
+Test RMSE: 1.0211
+
+param_grid = {'k': [18, 19, 20, 21, 22],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+1.0370138823311994 {'k': 21, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': False}}
+Test RMSE: 1.0215
+
+param_grid = {'k': [18, 19, 20, 21, 22],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [False]}
+                              
+KNNBasic(k=21, name='msd', min_support=2, user_based=False)
+AIcrowd: RMSE:1.073 Secondary:0.078
+                              
 USER SIMILARITY
 print('KNN')
 param_grid = {'k': [20],
@@ -58,7 +102,36 @@ param_grid = {'k': [20],
 1.0482214448779699 {'k': 20, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
 Test RMSE: 1.0392
 
+param_grid = {'k': [20, 40],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [True]}
+1.0343296024128215 {'k': 40, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+
+param_grid = {'k': [30, 40, 50],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [True]}
+1.0316238763986065 {'k': 50, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+
+param_grid = {'k': [50, 100, 150],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [True]}
+1.024415808035478 {'k': 150, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+
+param_grid = {'k': [150, 250],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2],
+                              'user_based': [True]}
+1.0237562681309107 {'k': 250, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}
+
+param_grid = {'k': [50, 100],
+              'sim_options': {'name': ['msd'],
+                              'min_support': [2, 4, 6],
+                              'user_based': [True]}
+1.0260464242166578 {'k': 100, 'sim_options': {'name': 'msd', 'min_support': 2, 'user_based': True}}                              
 
 
-https://www.aicrowd.com/challenges/epfl-ml-recommender-system-2019/
 https://github.com/saisandeepNSS/Netflix-Recommender-System/blob/master/NetflixRecommenderSystem.ipynb
+https://github.com/manzo94/RecommendationSystem

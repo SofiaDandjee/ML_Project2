@@ -14,22 +14,32 @@ def plot_raw_data(ratings):
     sorted_num_users_per_movie = np.sort(num_users_per_item)[::-1]
 
     # plot
+    plt.rcParams["figure.figsize"] = (10,5)
     fig = plt.figure()
     ax1 = fig.add_subplot(1, 2, 1)
-    ax1.plot(sorted_num_movies_per_user, color='blue')
+    ax1.plot(sorted_num_movies_per_user, color='#D95319')
     ax1.set_xlabel("users")
     ax1.set_ylabel("number of ratings (sorted)")
     ax1.grid()
 
     ax2 = fig.add_subplot(1, 2, 2)
-    ax2.plot(sorted_num_users_per_movie)
+    ax2.plot(sorted_num_users_per_movie, color='#A2142F')
     ax2.set_xlabel("items")
     ax2.set_ylabel("number of ratings (sorted)")
     ax2.set_xticks(np.arange(0, 10000, 1000))
+    plt.xticks(fontsize=8)
     ax2.grid()
 
-    plt.tight_layout()
-    #plt.savefig("stat_ratings")
+    plt.savefig("stat_ratings")
     plt.show()
-    # plt.close()
     return num_items_per_user, num_users_per_item
+
+def plot_train_test_data(train):
+    """visualize the train data."""
+    plt.rcParams["figure.figsize"] = (2,100)
+    plt.spy(train, precision=0.01, markersize=0.12, color='#7E2F8E') #plot the sparsity pattern of a 2D array
+    plt.xlabel("Movies")
+    plt.ylabel("Users")
+    plt.title("Training data")
+    plt.savefig("sparsity")
+    plt.show()
