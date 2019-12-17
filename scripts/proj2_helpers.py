@@ -1,6 +1,7 @@
 from itertools import groupby
 import numpy as np
-import pandas as pd
+#import pandas as pd
+from surprise import accuracy
 
 
 def calculate_mse(real_label, prediction):
@@ -84,6 +85,15 @@ def baseline_item_mean(train, test, ids):
     
     return rmse, predictions
 
+def load_predictions(ids, algo):
+    """creates predictions of an algorithm (from the surprise scikit) for the testset ids"""
+    predictions = []
+    for i in range(len(ids[0])):
+        pred = algo.predict(ids[0][i], ids[1][i])
+        predictions.append(round(pred.est))
+        
+    return predictions
+    
 def group_by(data, index):
     """group list of list by a specific index."""
     sorted_data = sorted(data, key=lambda x: x[index])
@@ -103,3 +113,9 @@ def build_index_groups(train):
     nz_col_rowindices = [(g, np.array([v[0] for v in value]))
                          for g, value in grouped_nz_train_bycol]
     return nz_train, nz_row_colindices, nz_col_rowindices
+
+def train_rmse(trainset, algo):
+    """Computes training rmse of an algorithm (from the surprise scikit)"""
+    predictions = algo.test(trainset.build_testset())
+    rmse = accuracy.rmse(algo.test(trainset.build_testset()), verbose=False)
+    return rmse

@@ -1,7 +1,8 @@
 import csv
 import numpy as np
 import scipy.sparse as sp
-
+from surprise import Dataset
+from surprise import Reader
 
 def read_txt(path):
     """read text file from path."""
@@ -74,3 +75,13 @@ def create_csv_submission(ids, predictions, name):
         writer.writeheader()
         for r1, r2, r3 in zip(ids[0], ids[1], predictions):
             writer.writerow({'Id':'r' + str(r1) + '_c' + str(r2),'Prediction':r3})
+
+def build_surprise_trainset(path):
+    """
+    Loads the training set for it to be usable by the surprise library
+    Argument: path (path of the file)
+    """
+    reader = Reader(line_format='user item rating', sep=',', skip_lines=1)
+    data = Dataset.load_from_file(path, reader=reader)
+    trainset = data.build_full_trainset()
+    return trainset
