@@ -11,7 +11,7 @@ pip install scikit-surprise
 
 ## Run the project
 1. Make sure that ```Python >= 3.7```, ```NumPy >= 1.16``` and ```sklearn >= 0.22``` are installed
-2. Go to `script\` folder and run ```run.py```. You will get ```submission.csv``` for Kaggle in the ```submission\``` folder.
+2. Go to `script\` folder and run ```run.py```. You will get ```submission.csv``` for Kaggle in the ```data\``` folder.
 
 ~~~~shell
 cd script
