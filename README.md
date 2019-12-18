@@ -3,7 +3,7 @@ Machine Learning - Project 2
 
 **`Tshtsh_club`**: Marie Anselmet, Sofia Dandjee, Héloïse Monnet
 
-##Install the required libraries
+## Install the required libraries
 
 1. Install the Surprise library
 2. Install the sklearn library
