@@ -14,22 +14,21 @@ def plot_raw_data(ratings):
     sorted_num_users_per_movie = np.sort(num_users_per_item)[::-1]
 
     # plot
-    plt.rcParams["figure.figsize"] = (10,5)
+    plt.rcParams["figure.figsize"] = (7,4)
     fig = plt.figure()
     ax1 = fig.add_subplot(1, 2, 1)
     ax1.plot(sorted_num_movies_per_user, color='#D95319')
-    ax1.set_xlabel("users")
-    ax1.set_ylabel("number of ratings (sorted)")
+    ax1.set_xlabel("Users")
+    ax1.set_ylabel("Number of ratings (sorted)")
     ax1.grid()
 
     ax2 = fig.add_subplot(1, 2, 2)
     ax2.plot(sorted_num_users_per_movie, color='#A2142F')
-    ax2.set_xlabel("items")
-    ax2.set_ylabel("number of ratings (sorted)")
-    ax2.set_xticks(np.arange(0, 10000, 1000))
-    plt.xticks(fontsize=8)
+    ax2.set_xlabel("Movies")
+    ax2.set_ylabel("Number of ratings (sorted)")
     ax2.grid()
-
+    
+    plt.tight_layout()
     plt.savefig("stat_ratings")
     plt.show()
     return num_items_per_user, num_users_per_item

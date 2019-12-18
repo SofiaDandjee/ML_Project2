@@ -29,13 +29,13 @@ def preprocess_data(data):
 
     # do statistics on the dataset.
     min_row, max_row, min_col, max_col = statistics(data)
-    print("number of items: {}, number of users: {}".format(max_row, max_col))
+    print("number of users: {}, number of items: {}".format(max_row, max_col))
 
     # build rating matrix.
     ratings = sp.lil_matrix((max_row, max_col))
     for row, col, rating in data:
         ratings[row - 1, col - 1] = rating
-    return ratings
+    return ratings.T
 
 
 def load_data(path_dataset):
@@ -77,6 +77,7 @@ def create_csv_submission(ids, predictions, name):
         for r1, r2, r3 in zip(ids[0], ids[1], predictions):
             writer.writerow({'Id':'r' + str(r1) + '_c' + str(r2),'Prediction':r3})
 
+            
 def build_surprise_data(path):
     """
     Loads the training set for it to be usable by the surprise library
@@ -86,6 +87,7 @@ def build_surprise_data(path):
     data = Dataset.load_from_file(path, reader=reader)
     trainset, testset = train_test_split(data, test_size=.2)
     return trainset, testset
+
 
 def split_data(ratings, p_test=0.1):
     """split the ratings to training data and test data.
