@@ -3,13 +3,14 @@ Machine Learning - Project 2
 
 **`Tshtsh_club`**: Marie Anselmet, Sofia Dandjee, Héloïse Monnet
 
-## Install the required libraries
+## Install the surprise library
 
-1. Install the Surprise library
-2. Install the sklearn library
+~~~~shell
+pip install scikit-surprise
+~~~~
 
 ## Run the project
-1. Make sure that ```Python >= 3.7``` and ```NumPy >= 1.16``` are installed
+1. Make sure that ```Python >= 3.7```, ```NumPy >= 1.16``` and ```sklearn >= 0.22``` are installed
 2. Go to `script\` folder and run ```run.py```. You will get ```submission.csv``` for Kaggle in the ```submission\``` folder.
 
 ~~~~shell
