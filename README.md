@@ -26,7 +26,7 @@ python run.py
 
 ### ```data_helpers.py```
 
-- `read_csv_sample, : Reads the sample_submission file and extracts the couples (item, user) for which the rating has to be predicted.
+- `read_csv_sample : Reads the sample_submission file and extracts the couples (item, user) for which the rating has to be predicted.
 - `create_csv_submission`: Creates an output file in csv format for submission to kaggle
 - `build_surprise_data`: Loads the training set for it to be usable by the surprise library
 
