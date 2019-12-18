@@ -3,6 +3,7 @@ import numpy as np
 import scipy.sparse as sp
 from surprise import Dataset
 from surprise import Reader
+from surprise.model_selection import train_test_split
 
 def read_txt(path):
     """read text file from path."""
@@ -76,12 +77,45 @@ def create_csv_submission(ids, predictions, name):
         for r1, r2, r3 in zip(ids[0], ids[1], predictions):
             writer.writerow({'Id':'r' + str(r1) + '_c' + str(r2),'Prediction':r3})
 
-def build_surprise_trainset(path):
+def build_surprise_data(path):
     """
     Loads the training set for it to be usable by the surprise library
     Argument: path (path of the file)
     """
     reader = Reader(line_format='user item rating', sep=',', skip_lines=1)
     data = Dataset.load_from_file(path, reader=reader)
-    trainset = data.build_full_trainset()
-    return trainset
+    trainset, testset = train_test_split(data, test_size=.2)
+    return trainset, testset
+
+def split_data(ratings, p_test=0.1):
+    """split the ratings to training data and test data.
+    Argument: ratings, original data set
+              p_test, the proportion given to test set
+    """
+    # set seed
+    np.random.seed(988) 
+    
+    # init
+    num_rows, num_cols = ratings.shape
+    train = sp.lil_matrix((num_rows, num_cols))
+    test = sp.lil_matrix((num_rows, num_cols))
+    
+    nz_items, nz_users = ratings.nonzero() #return the indices of the elements that are non-zero
+    
+    # split the data
+    for user in set(nz_users): 
+        #for each colum (user), we chose p_test of movies for the test set, the remainder is for training set
+        #randomly select a subset of ratings
+        row, col = ratings[:, user].nonzero()
+        selects = np.random.choice(row, size=int(len(row) * p_test)) #generates a random sample from a given 1-D array
+        residual = list(set(row) - set(selects))
+
+        # add to train set
+        for res in residual:
+            train[res, user] = ratings[res, user]
+
+        # add to test set
+        for sel in selects:
+            test[sel, user] = ratings[sel, user]
+    
+    return train, test
