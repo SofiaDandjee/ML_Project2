@@ -84,7 +84,7 @@ def build_surprise_data(path):
     """
     reader = Reader(line_format='user item rating', sep=',', skip_lines=1)
     data = Dataset.load_from_file(path, reader=reader)
-    trainset, testset = train_test_split(data, test_size=.2)
+    trainset, testset = train_test_split(data, test_size=.1)
     return trainset, testset
 
 def split_data(ratings, p_test=0.1):
