@@ -671,7 +671,7 @@ def blend(preds_test, preds_ids, testset):
     y_test = [rating for (_,_,rating) in testset]
     
     #Ridge Regression
-    linreg = Ridge(alpha=0.1, fit_intercept=True)
+    linreg = Ridge(alpha=0.1, fit_intercept=False)
     
     #Fit between predicted and know ratings of testset
     linreg.fit(preds_test.T, y_test)
@@ -707,7 +707,7 @@ def matrix_factorization_als(train, test, ids, Xtest, Xids):
     stop_criterion = 1e-4
     change = 1
     error_list = [0, 0]
-    
+
     # set seed
     np.random.seed(988)
 
@@ -728,10 +728,11 @@ def matrix_factorization_als(train, test, ids, Xtest, Xids):
         item_features = update_item_feature(train, user_features, lambda_item, nnz_users_per_item, nz_item_userindices)
 
         error = compute_error(train, user_features, item_features, nz_train)
-        print("Train RMSE: {}.".format(error))
+        
         error_list.append(error)
         change = np.fabs(error_list[-1] - error_list[-2])
-
+        
+    print("Training RMSE: {}.".format(error))
     # evaluate the test error
     nnz_row, nnz_col = test.nonzero()
     nnz_test = list(zip(nnz_row, nnz_col))
@@ -745,7 +746,7 @@ def matrix_factorization_als(train, test, ids, Xtest, Xids):
     for i in range(len(ids[0])):
         user = ids[0][i]
         item = ids[1][i]
-        rating = round(predictions_matrix[user-1, item-1])
+        rating = round(predictions_matrix[item-1, user-1])
         preds_ids.append(rating)
 
     preds_ids = np.clip(preds_ids, 1, 5)
@@ -809,7 +810,7 @@ def matrix_factorization_sgd(train, test, ids, Xtest, Xids):
         print("iter: {}, Train RMSE: {}.".format(it, rmse))
         
         errors.append(rmse)
-        
+    print("Training RMSE: {}".format(rmse))    
     # evaluate the test error
     rmse = compute_error(test, user_features, item_features, nz_test)
     print("Test RMSE: {}.".format(rmse))
@@ -820,7 +821,7 @@ def matrix_factorization_sgd(train, test, ids, Xtest, Xids):
     for i in range(len(ids[0])):
         user = ids[0][i]
         item = ids[1][i]
-        rating = round(predictions_matrix[user-1, item-1])
+        rating = round(predictions_matrix[item-1, user-1])
         preds_ids.append(rating)
 
     preds_ids = np.clip(preds_ids, 1, 5)
