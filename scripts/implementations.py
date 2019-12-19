@@ -11,6 +11,9 @@ from surprise import NMF
 from surprise import CoClustering
 from sklearn.linear_model import Ridge
 from surprise import KNNWithMeans
+import scipy
+import scipy.io
+import scipy.sparse as sp
 
 def global_mean(train, test, ids):
     """baseline method: use the global mean.
@@ -354,7 +357,7 @@ def svdpp(train, test, ids, Xtest, Xids):
                Xids, predicted ratings for unknown ratings, to be used for final blending
     """
     print ('SVD++')
-    algo = SVDpp(n_factors=100, n_epochs=20, lr_all=0.0015, reg_all= 0.05, random_state = 15)
+    algo = SVDpp(n_factors=100, n_epochs=10, lr_all=0.0015, reg_all= 0.05, random_state = 15)
                 
         
     #Train algorithm on training set
