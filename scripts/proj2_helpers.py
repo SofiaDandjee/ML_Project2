@@ -139,7 +139,7 @@ def compute_error(data, user_features, item_features, nz):
     return np.sqrt(1.0 * mse / len(nz))
 
 def compute_predictions(data, user_features, item_features, nz):
-     """compute the prediction of nonzero elements."""
+    """compute the prediction of nonzero elements."""
     predictions = []
     for row, col in nz:
         item_info = item_features[:, row]
