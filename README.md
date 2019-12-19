@@ -30,6 +30,11 @@ python run.py
 
 - `calculate_mse`: Computes mean-squared error between predicted and known ratings
 - `calculate_rmse`: Computes root-mean-squared error between predicted and known ratings
+- `init_MF`: Initializes the parameters for the custom matrix factorization methods.
+- `compute_error`: Compute the loss (MSE) of the prediction of nonzero elements for custom matrix factorization methods.
+- `compute_predictions`: Compute the prediction of nonzero elements for custom matrix factorization methods.
+- `update_user_feature`: Updates user feature matrix for the ALS matrix factorization method.
+- `update_item_feature`: Updates item feature matrix for the ALS matrix factorization method.
 
 ### ```data_helpers.py```
 
@@ -43,6 +48,8 @@ python run.py
 - `global_mean`: Use the global mean as the prediction.
 - `user_mean`: Use the user means as the prediction.
 - `item_mean`: Use the item means as the prediction.
+- `matrix_factorization_als`: Matrix factorization by Alternating Least Squares (ALS).
+- `matrix_factorization_sgd`: Matrix factorization by Stochastic Gradient Descent (SGD).
 - `normal_predictor`: Generates predictions according to a normal distribution estimated from the training set.
 - `baseline_only`: Combines user and item mean with user and item biases.
 - `knn_baseline_user`: Nearest neighbour approach between users taking into account baseline ratings.
