@@ -746,7 +746,7 @@ def matrix_factorization_als(train, test, ids, Xtest, Xids):
     for i in range(len(ids[0])):
         user = ids[0][i]
         item = ids[1][i]
-        rating = round(predictions_matrix[user-1, item-1])
+        rating = round(predictions_matrix[item-1, user-1])
         preds_ids.append(rating)
 
     preds_ids = np.clip(preds_ids, 1, 5)
@@ -821,7 +821,7 @@ def matrix_factorization_sgd(train, test, ids, Xtest, Xids):
     for i in range(len(ids[0])):
         user = ids[0][i]
         item = ids[1][i]
-        rating = round(predictions_matrix[user-1, item-1])
+        rating = round(predictions_matrix[item-1, user-1])
         preds_ids.append(rating)
 
     preds_ids = np.clip(preds_ids, 1, 5)
