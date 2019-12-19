@@ -753,7 +753,7 @@ def matrix_factorization_als(train, test, ids, Xtest, Xids):
     Xids.append(preds_ids)
     
     #Predict test ratings (known)
-    preds_test = compute_predictions(test, user_features, item_features, nz_test)
+    preds_test = compute_predictions(test, user_features, item_features, nnz_test)
     preds_test = np.clip(preds_test, 1, 5)
     Xtest.append(preds_test)
     return rmse, Xtest, Xids, preds_test, preds_ids
@@ -812,7 +812,7 @@ def matrix_factorization_sgd(train, test, ids, Xtest, Xids):
         errors.append(rmse)
     print("Training RMSE: {}".format(rmse))    
     # evaluate the test error
-    rmse = compute_error(test, user_features, item_features, nz_test)
+    rmse = compute_error(test, user_features, item_features, nnz_test)
     print("Test RMSE: {}.".format(rmse))
     predictions_matrix = user_features.T @ item_features
     preds_ids = []
@@ -828,7 +828,7 @@ def matrix_factorization_sgd(train, test, ids, Xtest, Xids):
     Xids.append(preds_ids)
     
     #Predict test ratings
-    preds_test = compute_predictions(test, user_features, item_features, nz_test)
+    preds_test = compute_predictions(test, user_features, item_features, nnz_test)
     preds_test = np.clip(preds_test, 1, 5)
     Xtest.append(preds_test)
     
