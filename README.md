@@ -69,5 +69,7 @@ python run.py
 
 Script to produce the same .csv predictions used in the best submission on the Kaggle platform.
 
+### ```run_blending.py```
 
+Script which computes the predictions of the blending of our 5 best-performing models
 
